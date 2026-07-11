@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { LogIn } from 'lucide-react';
@@ -12,6 +12,14 @@ import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 
 export default function LoginPage({ params }: { params: { locale: string } }) {
+  return (
+    <Suspense fallback={null}>
+      <LoginForm params={params} />
+    </Suspense>
+  );
+}
+
+function LoginForm({ params }: { params: { locale: string } }) {
   const locale = isLocale(params.locale) ? params.locale : defaultLocale;
   const dict = getDictionary(locale);
   const router = useRouter();
