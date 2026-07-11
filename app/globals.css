@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-surface-0 text-ink-900 antialiased;
+}
+
+[dir='rtl'] body {
+  font-family: var(--font-ibm-arabic), sans-serif;
+}
+
+[dir='rtl'] h1,
+[dir='rtl'] h2,
+[dir='rtl'] h3,
+[dir='rtl'] h4 {
+  font-family: var(--font-noto-kufi), sans-serif;
+}
+
+* {
+  scrollbar-color: #c7c4d8 transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #c7c4d8;
+  border-radius: 9999px;
+}
+
+/* Respect reduced-motion preferences everywhere, including the splash intro */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.focus-ring {
+  @apply outline-none ring-2 ring-secondary-500 ring-offset-2 ring-offset-surface-0;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #6b7280;
+}
