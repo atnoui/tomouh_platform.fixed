@@ -337,7 +337,7 @@ const fr = {
     shipped: 'Prêt pour retrait',
     disbursed: 'Remis',
   },
-} as const;
+};
 
 export default fr;
 export type Dictionary = typeof fr;
